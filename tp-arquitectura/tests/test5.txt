@@ -1,4 +1,4 @@
-# Recibe una matriz, imprime su determinante.
+# Reads a matrix, prints its determinant.
 R a1
 R b1
 R c1

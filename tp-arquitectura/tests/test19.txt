@@ -1,17 +1,13 @@
-# Es un frío-caliente de números:
-# En v1 almacenás el número a adivinar
-# En v2 almacenás la cantidad de oportunidades
-# Ejecutás el código. Ingresas un número:
-# Si el número que ingresaste es menor al que tenés 
-# que adivinar, en la pantalla se imprime un 1 y 
-# tenés una oportunidad menos.
-# Si el número que ingresaste es mayor, se imprime 
-# un -1 y tenés una oportunidad menos.
-# Si el número ingresado es el que tenías que 
-# adivinar, se imprime un 0.
-# Y en todos los casos, si adivinás o te quedás 
-# sin oportunidades se imprime el número a adivinar 
-# y se finaliza la ejecución.
+# Hot-cold game:
+# v1: number to guess
+# v2: number of opportunities
+# You have to insert numbers trying to guess v1, the 
+# program will output information depending on the 
+# numbers you enter, if it is greater than v1, it 
+# prints -1, if it is lower than v1, it prints 1,
+# and if it is equal, it prints 0 and stops the 
+# execution.
+# The execution also stops if you have no more shots.
 v1 55
 v2 5
 L 1

@@ -1,4 +1,4 @@
-# Número de aristas en un grafo completo de v0 nodos.
+# Number of edges in a complete graph of v0 nodes.
 R v0
 v1 v0
 v1 - v1 1

@@ -1,4 +1,4 @@
-# Dado n, computa el n-ésimo número de fibonacci.
+# Given n, computes the n-th fibonacci number.
 R v1
 v2 0 
 v3 1 

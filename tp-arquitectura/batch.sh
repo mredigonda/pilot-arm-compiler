@@ -1,4 +1,5 @@
 #~/bin/bash
+mkdir output
 gcc *.c -o pilot-compiler
 for i in `seq 1 $1`;
 do

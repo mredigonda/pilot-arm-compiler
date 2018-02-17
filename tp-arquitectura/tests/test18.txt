@@ -1,4 +1,4 @@
-# Recibe un número, e imprime 0 si es 0, 1 si es >0, o -1 si es <0.
+# Given a number n, prints sgn(n)
 R v2
 I < v2 0 1
 I > v2 0 2

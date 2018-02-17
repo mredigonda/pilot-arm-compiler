@@ -1,4 +1,4 @@
-# Invierte dígitos
+# Inverts digits of a number
 R v0
 v1 0
 v2 0

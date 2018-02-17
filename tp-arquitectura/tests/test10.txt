@@ -1,4 +1,4 @@
-# Función que crece muy rápidamente.
+# Function that grows really fast.
 R v1
 R v2
 v3 - v2 1

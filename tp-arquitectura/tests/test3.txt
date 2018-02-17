@@ -1,8 +1,8 @@
-# Lee tres números, el primero indica la operacion que se quiere realizar
-# Si el primer número es 1, se hace la suma.
-# Si el primer número es 2, se hace la resta.
-# Si el primer número es 3, se hace la multiplicacion.
-# Si el primer número es 4, se hace el división.
+# Reads three numbers, the first indicates which operation should be done on the other two numbers.
+# If the first number is 1: +
+# If the first number is 2: -
+# If the first number is 2: *
+# If the first number is 2: /
 R v1
 R v2
 R v3

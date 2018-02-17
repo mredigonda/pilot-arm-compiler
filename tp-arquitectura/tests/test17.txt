@@ -1,4 +1,4 @@
-# Campesino ruso en Pilot, multiplica dos números.
+# Russian peasant algorithm in Pilot, multiplies two numbers.
 R v1
 R v2
 v3 0

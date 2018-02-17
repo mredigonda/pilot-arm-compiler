@@ -1,4 +1,4 @@
-# Probando la operacion not (!)
+# Testing the operation not (!)
 R p40
 R k40
 O ! p40

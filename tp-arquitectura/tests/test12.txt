@@ -1,4 +1,4 @@
-# Prueba divisiones.
+# Tests divisions.
 R v1
 R v2
 O / v1 v2

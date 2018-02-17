@@ -1,6 +1,4 @@
-# Lee cantidad arbitraria de pares hasta que finalmente encuentra dos
-# numeros iguales, entonces termina imprimiendo 400. En cada instancia
-# responde 0 o 1 dependiendo de si los números leidos son iguales o no.
+# Reads pairs a, b, until it finds that a == b. If a != b it prints 0, else, it prints 1. It ends printing 400.
 L 10
 R z40
 R z41
