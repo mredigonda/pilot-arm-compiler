@@ -70,7 +70,16 @@ int main(){
             {
                 Expression e = get_next_expression(instr, 1);
                 evaluate_expression(e, &B);
-                char *label = (e.oper == NONE) ? instr.words[2] : instr.words[4];
+                char *label = NULL;
+                if(e.oper == NONE){
+                    label = instr.words[2];
+                }
+                else if(e.oper == NOT){
+                    label = instr.words[3];
+                }
+                else {
+                    label = instr.words[4];
+                }
                 conditional_jump(label);
                 break;
             }

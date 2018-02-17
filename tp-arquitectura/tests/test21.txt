@@ -1,0 +1,12 @@
+# Test jump operation with not in the condition.
+R v1
+I ! v1 50
+I v1 51
+L 50
+O 1
+G 52
+L 51
+O 0
+G 52
+L 52
+E
