@@ -137,16 +137,18 @@ void exit_program(){
 }
 
 void write_call(const char *name){
-    printf("  b func_%s\n", name);
+    printf("  bl func_%s\n", name);
     printf("back_%s:\n", name);
 }
 
 void declare_function(const char *name){
     printf("func_%s:\n", name);
+    printf("  push {lr}\n");
 }
 
 void return_function(const char *name){
-    printf("  b back_%s\n", name);
+    printf("  pop {lr}\n");
+    printf("  bx lr\n");
 }
 
 void initialize(){
