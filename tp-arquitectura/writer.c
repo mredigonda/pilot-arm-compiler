@@ -24,7 +24,7 @@ void evaluate_expression(Expression e, Bucket *B){
     }
     else {
         int x, y;
-        x = 2; y = 3; // registros auxiliares para los cómputos...
+        x = 2; y = 3; // auxiliar registers
         evaluate_component(e.v1, B, x);
         if(e.oper != NOT) evaluate_component(e.v2, B, y);
         printf("  ");
@@ -64,7 +64,7 @@ void evaluate_expression(Expression e, Bucket *B){
                 break;
             }
             case NONE: {}
-            default: { /** Para operaciones de comparación **/
+            default: {
                 puts("eor r1, r1");
                 printf("  cmp r%d, r%d\n", x, y);
                 printf("  ");

@@ -1,6 +1,7 @@
 /**
  * @file debug.h
- * @brief Implementa utilidades para facilitar el desarrollo.
+ * @brief Implements utilities to print values to make the process
+ * of development easier.
  */
 
 #ifndef DEBUG_H
@@ -11,26 +12,24 @@
 #include "instruction-decoder.h"
 
 /**
- * Dada una componente, imprime por pantalla toda la informacion sobre
- * ella.
+ * Given a component, prints all information about it to the screen.
  */
 void show_component(Component c);
 
 /**
- * Dada una expresion, imprime por pantalla toda la informacion sobre
- * ella.
+ * Given an expression, prints all information about it to the screen.
  */
 void show_expression(Expression e);
 
 /**
- * Dado un bucket, muestra la capacidad de este, y muestra cada 
- * elemento al lado de su índice en el bucket.
+ * Given a bucket, prints its capacity and its elements along with
+ * their positions in the bucket.
  */
 void show_bucket(Bucket *B);
 
 /**
- * Dada una instruccion, muestra la cantidad de palabras de esta,
- * y cada elemento en una nueva linea.
+ * Given an instruction, prints the number of words in it, and prints
+ * each word of the instruction in a new line.
  */
 void show_instruction(Instruction instr);
 

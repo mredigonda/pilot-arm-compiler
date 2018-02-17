@@ -1,13 +1,13 @@
 /**
  * @file main.h
- * @brief Define enumeraciones y constantes usadas globalmente.
+ * @brief Defines enums and constants used globally.
  */
 
 #ifndef MAIN_H
 #define MAIN_H
 
 /**
- * @brief Enumeracion booleana para proveer tipos semejantes a los de C++.
+ * @brief Boolean enum to provide a type similar to bool in C++.
  */
 typedef enum _bool {
     false,

@@ -39,7 +39,7 @@ bool is_valid_integer(const char *s){
         if(neg) val = -val;
         
         if(first_dig_zero && !neg && n > 1) return false;
-        if(first_dig_zero && neg) return false; /* No permito -0 */
+        if(first_dig_zero && neg) return false; /* -0 is not allowed */
         
         if(val < INT_MIN || val > INT_MAX) return false;
         
@@ -106,9 +106,9 @@ Expression get_next_expression(Instruction instr, int pos){
                 }
             }
             else if(pos + 2 < instr.length){
-                /* En pos se encuentra el operador */
-                /* En pos + 1 se encuentra el primer operando */
-                /* En pos + 2 se encuentra el segundo operando */
+                /* The operator is at 'pos' */
+                /* The first operand is at 'pos + 1' */
+                /* The second operand is at 'pos + 2' */
                 Component l, r;
                 l = get_component(instr.words[pos + 1]);
                 r = get_component(instr.words[pos + 2]);

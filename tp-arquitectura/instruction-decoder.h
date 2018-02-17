@@ -1,7 +1,7 @@
 /**
  * @file instruction-decoder.h
- * @brief Implementa funcionalidades para leer e interpretar 
- * instrucciones y expresiones.
+ * @brief Implements helper functions to read and interpret instructions
+ * and expressions.
  */
 
 #ifndef INSTRUCTION_DECODER_H
@@ -10,25 +10,25 @@
 #include "main.h"
 
 /**
- * @brief Describe todos los tipos de instruccion posibles.
+ * @brief Describes all possible instruction types.
  */
 typedef enum _instructionType {
-    ASSIGN, /**< Asigna el valor de una expresion a una variable. */
-    INPUT, /**< Lee un valor entero de stdin y lo escribe a una variable. */
-    OUTPUT, /**< Escribe el valor de una expresion en la pantalla. */
-    END, /**< Termina el programa. */
-    JUMP, /**< Cambia el punto de ejecucion. */
-    LABEL, /**< Declara una etiqueta, lugar al cual se puede cambiar el punto de ejecucion. */
-    CONDITIONAL_JUMP, /**< Cambia condicionalmente el punto de ejecucion. */
-    COMMENT, /**< No forma parte del código, es solo un comentario. */
-    CALL, /**< Llama a una función. */
-    FUNCTION, /**< Declara una función. */
-    RETURN /**< Retorna de una función. */
+    ASSIGN, /**< Assigns the value of an expression to a variable. */
+    INPUT, /**< Reads the value of an integer from stdin and writes it to a variable. */
+    OUTPUT, /**< Writes the value of an expression to stdout. */
+    END, /**< Ends the program. */
+    JUMP, /**< Changes the execution point. */
+    LABEL, /**< Declares a label. */
+    CONDITIONAL_JUMP, /**< Conditionally changes the execution. */
+    COMMENT, /**< Not part of the code, just a comment. */
+    CALL, /**< Calls a function. */
+    FUNCTION, /**< Declares a function. */
+    RETURN /**< Returns from a function. */
 } instructionType;
 
 /**
- * @brief Una instruccion es un conjunto de palabras, junto con el 
- * número de palabras.
+ * @brief An instruction is a number describing how many words it has,
+ * and that many words.
  */
 typedef struct _Instruction {
     int length;
@@ -36,22 +36,22 @@ typedef struct _Instruction {
 } Instruction;
 
 /**
- * Funcion auxiliar para obtener la siguiente linea de stdin.
- * @return La siguiente linea a leer de stdin.
+ * Helper function to get the next line from stdin.
+ * @return The next line to read from stdin.
  */
 char *          get_instruction_line();
 
 /**
- * Obtiene una instrucción.
- * @return La siguiente instruccion a leer, en forma de _Instruction.
+ * Gets an instruction.
+ * @return The next instruction to read.
  */
 Instruction     get_next_instruction();
 
 /**
- * Determina el tipo de instruccion que representa un objeto de tipo
- * _Instruction.
- * @param instr La instruccion de la cual se quiere averiguar el tipo.
- * @return El tipo de la instruccion, como un _instructionType.
+ * Determines the type of instruction that an object of type 
+ * _Instruction represents.
+ * @param instr The instruction whose type you want to know.
+ * @return The type of the instruction as an _instructionType.
  */
 instructionType get_instruction_type(Instruction instr);
 

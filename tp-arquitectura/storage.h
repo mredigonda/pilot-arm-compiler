@@ -1,7 +1,7 @@
 /**
  * @file storage.h
- * @brief Implementa Bucket, la estructura de datos para guardar
- * los nombres de las variables y asignarles un número.
+ * @brief Implements a Bucket, a data structure to store variable names,
+ * assign each of them a number, and query them.
  */
  
 #ifndef STORAGE_H
@@ -10,8 +10,8 @@
 #include "main.h"
 
 /**
- * @brief Una estructura dedicada a mantener un conjunto de nombres
- * de variables, y asociar cada una a un entero.
+ * @brief A data structure dedicated to maintain a set of names of
+ * variables, and associate each one with an integer.
  */
 typedef struct _Bucket {
     int sz, nelems;
@@ -19,17 +19,16 @@ typedef struct _Bucket {
 } Bucket;
 
 /**
- * @return Retorna un nuevo _Bucket.
+ * @return Returns a new _Bucket.
  */
 Bucket create_new_bucket();
 
 /**
- * @param B El bucket al cual se le quiere agregar el elemento.
- * @param v La cadena de texto que se quiere meter en el _Bucket.
- * Introduce el elemento en el bucket, si es que no existe todavía.
- * @return Si el elemento ya existe en el bucket, retorna la posición
- * en la que se encuentra. De otra manera, lo inserta al final, y 
- * retorna esta posición.
+ * @param B The bucket to which you want to add an element.
+ * @param v The string you want to insert in the Bucket.
+ * @return If the element already exists in the Bucket, returns its
+ * position. Otherwise, this function inserts it at the end and returns
+ * its newly defined position.
  */
 int insert_element(Bucket *B, const char *v);
 

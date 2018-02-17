@@ -1,7 +1,7 @@
 /**
  * @file writer.h
- * @brief Consta de todas las funciones para imprimir el programa
- * en ARM por pantalla.
+ * @brief Consists of all the functions to print the ARM program. No
+ * other file is allowed to print to stdout.
  */
 #ifndef WRITER_H
 #define WRITER_H
@@ -10,101 +10,94 @@
 #include "storage.h"
 
 /**
- * Escribe la evaluación de una componente, dejando su valor guardado 
- * en el registro indicado por el parámetro where.
- * @param v Componente que se quiere evaluar.
- * @param B Bucket que contiene los nombres de las variables, y al
- * cual se van a agregar nombres de variables.
- * @param where Indica en qué registro se guarda el valor del 
- * componente.
+ * Writes the evaluation of a component, leaving its value stored in 
+ * the register indicated by the parameter where.
+ * @param v Component to evaluate.
+ * @param B Bucket with the names of the variables.
+ * @param where Indicates where to store the value of the component.
  */
 void evaluate_component(Component v, Bucket *B, int where);
 
 /**
- * Escribe la evaluación una expresion, dejando su valor guardado en 
- * r1, para uso posterior, posiblemente via printf.
- * @param e La expresion que se quiere evaluar.
- * @param B Bucket que contiene los nombres de las variables
- * ya utilizadas, y al que potencialmente se va a agregar nombres
- * de variables en la expresion.
+ * Writes the evaluation of an expression, leaving its value stored in
+ * r1.
+ * @param e The expression to evaluate.
+ * @param B Bucket with the names of the variables. May be modified
+ * will newly read variable names in the expression.
  */
 void evaluate_expression(Expression e, Bucket *B);
 
 /**
- * Escribe la impresión del valor alojado en r1 por pantalla. Asume 
- * que la instruccion push {ip, lr} fue usada al comienzo, y que 
- * pop {ip, pc} será usada al final.
+ * Writes the printing of the value stored in r1. Assumes that the 
+ * instruction push {ip, lr} was used before, and that pop {ip, pc}
+ * will be used at the end. 
  */
 void print_value();
 
 /**
- * Escribe la lectura de un valor de la entrada estándar y su 
- * almacenamiento en la posición correspondiente del arreglo universe.
- * @param B Bucket con los nombres de las variables.
- * @param s Nombre de la variable en la cual guardar el valor leido.
+ * Writes a reading of a value from stdin and loads that value into the
+ * universe array.
+ * @param B Bucket with the names of the variables.
+ * @param s Name of the variable that is assigned the value read.
  */
 void scan_value(Bucket *B, const char *s);
 
 /**
- * Escribe la carga del valor de r1 en la variable definida por la 
- * cadena pasada.
- * @param B Bucket con los nombres de las variables.
- * @param s Nombre de la variable, se supone que es válido.
+ * Writes the load of the value stored in r1 to a variable.
+ * @param B Bucket with the names of the variables.
+ * @param s Name of the variable that is assigned the value of r1.
  */
 void load_value(Bucket *B, const char *s);
 
 /**
- * Escribe una etiqueta en el programa, correspondiente al número de 
- * etiqueta que recibe como parámetro.
- * @param l Número de etiqueta. 
+ * Writes definition of a label in the program.
+ * @param l Label number.
  */
 void mark_label(const char *l);
 
 /**
- * Escribe un salto a una etiqueta en el programa, correspondiente 
- * al número de etiqueta que recibe como parámetro.
- * @param l Número de etiqueta. 
+ * Writes a jump to a label in the program. 
+ * @param l Label number, that indicates where to jump.
  */
 void jump_label(const char *l);
 
 /**
- * Escribe un salto condicional, en el caso de que el valor en r1
- * sea distinto de 0.
- * @param l Numero de la etiqueta a la cual saltar.
+ * Writes a conditional jump, that jumps just in the case that the
+ * value stored in r1 is not zero.
+ * @param l Label number, that indicates where to jump.
  */
 void conditional_jump(const char *l);
 
 /**
- * Escribe la instrucción de abandonar el programa.
+ * Writes the instruction to leave the program.
  */
 void exit_program();
 
 /**
- * Escribe el llamado a una funcion en ARM.
- * @param name Nombre de la funcion a llamar.
+ * Writes the call of a function in ARM.
+ * @param name Name of the function to call.
  */
 void write_call(const char *name);
 
 /**
- * Escribe la declaracion de una funcion en ARM.
- * @param name Nombre de la función a declarar.
+ * Writes the declaration of a function in ARM.
+ * @param name Name of the function to declare.
  */
 void declare_function(const char *name);
 
 /**
- * Escribe el retorno de una función en ARM.
- * @param name Nombre de la función de la cual retornar.
+ * Writes the return of a function in ARM.
+ * @param name Name of the function from which to return.
  */
 void return_function(const char *name);
 
 /**
- * Escribe todo el código necesario para inicializar el programa en 
- * ARM. 
+ * Writes all needed code to initialize the ARM program.
  */
 void initialize();
 
 /**
- * Escribe todo el código necesario al final de programa ARM.
+ * Writes all needed code at the end of the ARM program.
  */
 void terminate(Bucket *B);
 

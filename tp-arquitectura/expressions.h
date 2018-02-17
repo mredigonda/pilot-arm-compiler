@@ -1,7 +1,7 @@
 /**
  * @file expressions.h
- * @brief Implementa funciones para reconocer nombres de variables 
- * válidos, y para leer expresiones y componentes.
+ * @brief Implements functions to recognize valid name of variables,
+ * and to read expressions and components.
  */
 #ifndef EXPRESSIONS_H
 #define EXPRESSIONS_H
@@ -10,9 +10,9 @@
 #include "instruction-decoder.h"
 
 /**
- * @brief Representa un literal o una variable. Si es variable, value
- * corresponde a un nombre válido para una variable, y 'var' es true.
- * Si no, en value se guarda su valor explícito.
+ * @brief Represents a component. If it is valid, then is either a 
+ * value or a variable. The value is stored in 'value' and 'var' 
+ * indicates if it is a variable or a literal.
  */
 typedef struct _Component {
     bool valid, var;
@@ -20,7 +20,7 @@ typedef struct _Component {
 } Component;
 
 /**
- * @brief Describe los tipos de operaciones posibles. 
+ * @brief Describes all possible operator names (in Spanish, sorry).
  */
 typedef enum _operatorType {
     SUMA,
@@ -41,9 +41,9 @@ typedef enum _operatorType {
 } operatorType;
 
 /**
- * @brief Representa una expresion. Una expresion es un componente
- * unico, o es una operacion seguido de dos componentes. Si oper es
- * NONE, entonces el valor de la expresion está sólo en el componente v1.
+ * @brief Represents an expression. An expression is a unique component,
+ * or a 'not' operation followed by a single component, or other type
+ * of operator, followed by two components.
  */
 typedef struct _Expression {
     bool valid;
@@ -52,54 +52,54 @@ typedef struct _Expression {
 } Expression;
 
 /**
- * @param s La cadena que en teoría representa un número.
- * @return Retorna verdadero si la string representa un número 
- * representable por un int, y falso en caso contrario. No se permiten 
- * ceros a izquierda, ni -0.
+ * @param s The string that we want to know if it represents a valid
+ * integer.
+ * @return Returns true if the string is a valid integer.
  */
 bool            is_valid_integer(const char *s);
 
 /**
- * @param s La cadena que en teoría representa un número de etiqueta.
- * @return retorna verdadero si la cadena representa un número de 
- * etiqueta, o falso si no. Un número de etiqueta es un entero válido
- * pero sin signo, es decir, cualquier entero entre 0 y 2^31-1.
+ * @param s The string that we want to know if it represents a label 
+ * number.
+ * @return Returns true if the string corresponds to a label number. A
+ * label number is an integer value between 0 and 2^31 - 1, no leading
+ * zeroes allowed, no -0 allowed.
  */
 bool            is_label_number(const char *s);
 
 /**
- * @param s El nombre de la cadena.
- * @return Retorna verdadero si la cadena corresponde a un nombre valido
- * para una variable: una letra en minúsculas seguida de un numero de 
- * etiqueta, donde un numero de etiqueta es un valor entre 
- * 0 y 2147483647. No se permiten ceros a izquierda.
+ * @param s The string that we want to know if it represents a valid
+ * variable name.
+ * @return Returns true if the string corresponds to a valid variable
+ * name: a lowercase english letter, followed by a label number.
  */
 bool            is_valid_variable_name(const char *s);
 
 /**
- * Funcion auxiliar usada para determinar que operador simboliza una 
- * palabra dada, en caso de que lo haga. Un operador es uno de la 
- * siguiente lista: +, -, *, /, &, *, |, ^, <, <=, ==, >, >=, !=, !.
- * @param word La palabra que posiblemente represente el operador.
- * @return El operador que representa la palabra o -1 si no.
+ * Helper function used to determine which operator a string is, in
+ * case it is an operator.
+ * @param word The word that we want to know which operator it 
+ * represents.
+ * @return The operator that the word represents, or NONE if it
+ * doesn't represent any operator.
  */
 operatorType    get_operator_type(const char *word);
 
 /**
- * Extra un componente de una cadena de texto.
- * @param s La cadena de la cual se quiere extraer el componente.
- * @return Retorna un _Component que representa la cadena de texto,
+ * Extracts a component from a string.
+ * @param s The string from which to extract the component.
+ * @return Returns a component that represents the string.
  */
 Component       get_component(const char *s);
 
 /**
- * Lee una expresion de una lista de palabras. Recordar que una
- * expresion es o bien un componente, o bien un operador seguido
- * de dos componentes.
- * @param instr Es la instruccion de la cual leer la expresion.
- * @param pos Es la posicion desde la cual leer la instruccion.
- * @return Retorna la expresion, en caso de fallo retorna una expresion
- * no valida.
+ * Reads an expression from a list of words (an instruction), at some
+ * position.
+ * @param instr The instruction from which to read the expression.
+ * @param pos The position in the instruction from which to read
+ * the expression.
+ * @return Returns an expression. In case something fails, returns that
+ * the expression is not valid.
  */
 Expression      get_next_expression(Instruction instr, int pos);
 
