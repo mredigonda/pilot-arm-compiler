@@ -8,7 +8,7 @@ Bucket create_new_bucket(){
     Bucket B;
     
     B.nelems = 0;
-    B.sz = 4;
+    B.sz = MAX_BUFF_SIZE;
     B.storage = (char **) malloc(MAX_BUFF_SIZE * sizeof(char *));
     
     return B;
