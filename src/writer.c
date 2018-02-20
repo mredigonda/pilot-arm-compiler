@@ -138,7 +138,6 @@ void exit_program(){
 
 void write_call(const char *name){
     printf("  bl func_%s\n", name);
-    printf("back_%s:\n", name);
 }
 
 void declare_function(const char *name){
