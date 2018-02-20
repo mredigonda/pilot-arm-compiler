@@ -84,16 +84,16 @@ Variables are alphanumeric strings that start with a lower-case letter, and have
 \item{End: it consists of an E, which means the end of the program.}
 \item{Jump: it is first represented by a G, followed by a label number. This sentence modifies the control flow, and resumes the execution on the label given by the number.}
 \item{Label: it consists of an L and a label number. This defines the label characterized by the specified integer.}
-\item{Conditional jump: se representa por una letra I, seguida de una expresión, y termina en un entero de etiqueta. Su efecto es el de saltar a la etiqueta correspondiente si el valor de la expresión es distinto de cero.}
-\item{Comment: se representa por un símbolo \#, y tiene el efecto de ignorar todo lo que sigue en la línea.}
-\item{Function definition: se representa por una F y sigue con el nombre de la función.}
-\item{Call a function: se representa por una C, seguida del nombre de una función, tiene el efecto de pasar el mando de la ejecución a la función.}
-\item{Function return: se representa por la palabra RET seguida del nombre de la función de la cual se quiere retornar. Devuelve el mando de la ejecución al punto desde el cual se llamó a la función.}
+\item{Conditional jump: it is represented by a letter I, then it is followed by an expression, and ends with a label number. Its effect is to jump to the corresponding label number if the value of the expression is not zero.}
+\item{Comment: it is represented by a symbol \#, and it has the effect to tell the compiler to ignore everything until the end of line.}
+\item{Function definition: it is represented by a F and it is followed by the name of the function.}
+\item{Call a function: it is represented by a C, and it is followed by the name of a function, it has the effect to execute the function.}
+\item{Function return: it is represented by a word RET, followed by the name of the function from which to return.}
 \end{itemize}
 
-\noindent Un componente es una constante o una variable. Una expresión consiste de un componente, o un operador seguido de una o dos componentes (según corresponda).
+\noindent A component is a constant or a variable. An expression consists of a single component, or an operator followed by one or two components (depending on the operation).
 
-\noindent No se permiten líneas en blanco, estas simbolizan el fin del programa.
+\noindent Blank lines are not allowed: the compiler interprets them as the end of the program.
 
 \section{Proceso}
 Para realizar este proyecto:

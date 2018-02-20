@@ -1,0 +1,6 @@
+src/html/
+src/latex/
+src/output/
+src/pilot-compiler
+src/tests/*.out
+src/tests/*.s
