@@ -56,23 +56,23 @@
 %                         Start here
 % --------------------------------------------------------------
  
-\title{Trabajo Práctico Final - Pilot \\
- \large Arquitectura del Computador
+\title{Final Work - Pilot \\
+ \large Computer Architecture
 }
-\date{Enero 8, 2018}
+\date{January 8th, 2018}
 \author{Gonzalo Turconi - T-2820/7 \\
         Ignacio Cattoni - C-6415/7 \\
         Maximiliano Redigonda - R-4079/7}
 \maketitle
 
 \section{Introduction}
-The aim of this draft is to develop a compiler of Pilot language to ARM assembler language.\textbf{Pilot} is a simple language; here is provided an accurate description of this language, based on the given model.
+The aim of this draft is to develop a compiler from the Pilot language to the ARM assembler language. \textbf{Pilot} is a simple language; here is provided an accurate description of this language, based on the given model.
 
 Every sentence on Pilot is written on a single line. Each line begins with a letter or a symbol that designates the operation to be executed, or with the name of a variable to assign its value.
 
-Variables are alphanumeric strings that starts with a lower-case letter, and have to be followed by a label number\footnote{A label number is a non-negative integer number, represented by a signed 32-bits integer (i.e. any integer between $0$ and $2^{31}-1$, without left zeros)}. Thus:
+Variables are alphanumeric strings that start with a lower-case letter, and have to be followed by a label number\footnote{A label number is a non-negative integer number, represented by a signed 32-bits integer (i.e. any integer between $0$ and $2^{31}-1$, without leading zeros)}. Thus:
 \begin{itemize}
-\item{a0, z24, x231, p2147483647, ar valid names, whereas:}
+\item{a0, z24, x231, p2147483647, are valid names, whereas:}
 \item{a-1, b, romeosantos, 23z, w2147483648, r00, are not valid names.}
 \end{itemize}
 
