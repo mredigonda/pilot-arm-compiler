@@ -129,17 +129,17 @@ Since an expression has at most 2 components, it was developed an expression-eva
 
 It was decided to store the result in the register \texttt{r1} since it is convenient for future calls to the \texttt{printf} function, avoiding an unnecessary \texttt{mov} instruction.
 
-\subsubsection{¿Cómo soportar la operación de división entera? (\texttt{/})}
+\subsubsection{¿How to support the integer division operator? (\texttt{/})}
 
-Uno de los inconvenientes se presentó al agregar el cociente a la lista de operadores. El conjunto de instrucciones de ARM contiene a \texttt{sdiv} y \texttt{udiv}, división con signo y sin signo, respectivamente. 
+One of the drawbacks arose when adding the integer division operator. The ARM set of instructions contains \texttt{sdiv} and \texttt{udiv}: signed and unsigned division, respectively.
 
-Al ejecutar estas instrucciones se ha obtenido, en ambos casos, el siguiente error: \texttt{«Error: selected processor does not support `sdiv r1,r2,r3' in ARM mode»} con la instrucción correspondiente.
+When executing these instructions, the following error message was displayed: \texttt{«Error: selected processor does not support `sdiv r1,r2,r3' in ARM mode»}.
 
-Dichas instrucciones fueron las únicas con las que el compilador arrojó tal error. Luego de consultar foros informáticos y manuales de ARM en busca de alternativas, se pudo observar que las operaciones de cociente han sido agregadas en ARMv8, y todos los emuladores de dicha arquitectura ejecutan, por defecto, ARMv6. 
+Said instructions were the only ones with which the compiler showed such error. After a careful research it was observed that integer division operations have been added since ARMv8, and that all emulators run ARMv6 by default.
 
-Esto se pudo solucionar agregando \texttt{-march=armv8-a} como opción en la compilación, dando por finalizado el problema.
+This issue was resolved, then, by adding \texttt{-march=armv8-a} as an option in the compilation process, which tells the compiler to run ARMv8 making division operators available.
 
-\section{¿Cómo seguir?}
+\section{Next Steps}
 El compilador soporta todas las características adicionales sugeridas en las consignas del trabajo. También soporta comentarios, y posee una documentación realizada con \texttt{Doxygen}.
 Además de estas extensiones, el proyecto puede continuar por medio de:
 \begin{itemize}
