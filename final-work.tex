@@ -102,31 +102,32 @@ To complete this project:
 \item{A research on how to structure and split the program in various files was carried out.}
 \item{A research on tools and methods to document the files was carried out.}
 \item{A reader and classifier of instructions was developed (\texttt{instruction-decoder.c}).}
-\item{A data structure to map variable names to memory addresses was designed (\texttt{storage.c}).}
+\item{A data structure to map variable names into memory addresses was designed (\texttt{storage.c}).}
 \item{A system to read and evaluate expressions was created (\texttt{expressions.c}).}
 \item{A system to print useful data during the development process was created (\texttt{debug.c}).}
 \item{A system in charge of writing the resulting ARM program was developed (\texttt{writer.c}).}
-\item{More than 20 Pilot programs to test the compiler were created (\texttt{tests/*}).}
+\item{More than 20 Pilot programs were created to test the compiler (\texttt{tests/*}).}
 \end{enumerate}
 
-\section{Nota}
-Desde un principio, el objetivo del proyecto ha sido desarrollar un compilador que dado un código válido en Pilot, genere un código válido en lenguaje ensamblador ARM que lo represente. Como consecuencia de esto, si se recibe un código no válido en Pilot, el comportamiento del compilador es indefinido.
+\section{Note}
+From the beginning, the objective of this project has been developing a compiler that, given a valid Pilot code, it generates a valid ARM assembly code that represents it. Due to this fact, if the program receives an invalid Pilot code, the compiler's behavior is indefinitely.
 
-\section{Problemas}
-Durante el proceso de desarrollo, han surgido numerosos desafíos. Algunos de ellos se listan a continuación.
-\subsubsection{¿Cómo almacenar los valores de las variables?}
+\section{Problems}
+During the developing process have surged several challenges. Some of them are showing up next.
 
-Se investigó la posibilidad de guardar los valores de las variables en los registros, esto resultaría eficiente, pero si la cantidad de variables a manipular crece lo suficiente, esta opción se torna tediosa y caótica, ya que se requeriría de almacenamiento extra.
+\subsubsection{How to store the variables' values?}
 
-También se evaluó utilizar la pila, y asignarle a cada variable un offset desde el tope de la pila. Esta opción también tiene limitaciones cuando el número de variables es elevado, además de que es probable que no sean sólo variables los valores que se guarden en la pila.
+It was researched the possibility of storing the variables' values into registers. This would be efficient unless the variables' quantity was enough big to turn this operation tedious and chaotic. In this case, it would be needed some extra storage.
 
-Finalmente, se determinó que declarar un arreglo con la cantidad mínima requerida de memoria para guardar el valor de todas las variables era la mejor opción. Este método resulta fácil y cómodo de manejar, sólo asignamos a cada variable una posición en el arreglo, en el cual sabemos que sólo va a haber variables guardadas, y además resulta óptimo en el uso de la memoria.
+It was also considered the usage of the stack, which meant assigning an offset from the top of the stack to every variable. This option also has limitations when the amount of variables is big. Besides, it is likely that the variables were not the only values stored in the stack.
 
-\subsubsection{Una vez que se tiene guardada una expresión, ¿cómo obtener su valor? ¿dónde guardarlo?}
+Finally, an array with the minimum amount of memory for storing the value of every variable was determined as the best option. This method is easy and handy, it is assigned a position in the array for each variable. Then, the array is only composed of variables, and the memory is used optimally.
 
-Debido a que una expresión posee a lo más 2 componentes, se realizó un evaluador de expresiones, que utiliza los registros \texttt{r2} y \texttt{r3} (esto es configurable) para almacenar valores auxiliares y guarda el resultado en el registro \texttt{r1}.
+\subsubsection{Once an expression is stored, how to obtain its value and how to store it?}
 
-Se determinó guardar el valor en el registro \texttt{r1} ya que resulta conveniente para las llamadas posteriores a \texttt{printf}, ahorrando una instrucción \texttt{mov}.
+Due to an expression has at most 2 components, it was developed an expression-evaluator that uses the registers \texttt{r2} and \texttt{r3} (this can be changed) to store auxiliary values, and saves the result in the register \texttt{r1}.
+
+It was decided to store the result in the register \texttt{r1} since is convenient for future calls to the \texttt{printf} function, avoiding an unnecessary \texttt{mov} instruction.
 
 \subsubsection{¿Cómo soportar la operación de división entera? (\texttt{/})}
 
