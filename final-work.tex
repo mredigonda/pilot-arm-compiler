@@ -140,31 +140,36 @@ Said instructions were the only ones with which the compiler showed such error. 
 This issue was resolved, then, by adding \texttt{-march=armv8-a} as an option in the compilation process, which tells the compiler to run ARMv8 making division operators available.
 
 \section{Next Steps}
-El compilador soporta todas las características adicionales sugeridas en las consignas del trabajo. También soporta comentarios, y posee una documentación realizada con \texttt{Doxygen}.
-Además de estas extensiones, el proyecto puede continuar por medio de:
+The compiler supports all additional features suggested. It also supports comments, and it has a documentation made with \texttt{Doxygen}.
+Besides from these extensions, the project can continue by:
 \begin{itemize}
-\item{Agregar más tests}
+\item{Adding more tests}
 
-Un compilador es un programa particularmente difícil de probar. Agregar más tests es una de las mejores opciones para dejar en evidencia fallas, y volver el compilador más robusto a cambios que puedan provocar problemas en el futuro.
+A compiler is a particularly difficult program to test. Adding more tests is one of the best options to discover flaws and make the compiler more robust. Future changes will then be less likely to produce problems that go unnoticed.
 
-\item{Agregarle un \texttt{for} a Pilot}
+\item{Adding a \texttt{for} to Pilot}
 
-El código actualmente permite la integración de nuevas instrucciones con relativa facilidad. Debido a esto, implementar un \texttt{for} es una buena idea para continuar el proyecto. 
+The current code allows the integration of new instructions with relative ease. Because of this, implementing a \texttt{for} is a good idea to continue this project.
 
-Una posible sintaxis puede ser \texttt{FOR var comp1 comp2} donde \texttt{var} es la variable que itera, mientras que \texttt{comp1} y \texttt{comp2} son componentes. Para terminarlo, se podría usar \texttt{END FOR}.
+A possible syntax can be \texttt{FOR var from to}, where \texttt{var} is the iterator variable, and \texttt{from} and \texttt{to} are components. To end the for, \texttt{END FOR} could be used.
 
-Debido a que deberían poder anidarse, es necesario implementar una pila que recuerde la información de cada \texttt{for}, de manera que un \texttt{END FOR} cierre el último \texttt{for} que se abrió.
+Given that they could be nested, and that functions are already implemented in Pilot, it might be necessary to change the way the compiler stores variables in the generated ARM program to allow this feature.
 
-\item{Determinar si el programa ingresado en Pilot es válido.}
+\item{Determine if the entered program is a valid Pilot program}
 
-Se determinó que esta característica no es crucial para el compilador, debido a que no afecta a la correctitud de éste, sino a su facilidad de uso.
+It was agreed that this feature is not critical, since it doesn't affect the correctness of the compiler. However, it would make developer's life easier.
 
-Para realizarlo, se requiere de al menos:
+To do this, it is require to at least:
+
 \begin{enumerate}
-\item{Guardar las etiquetas definidas, para verificar que no haya dos definiciones de la misma etiqueta.}
-\item{Hacer verificaciones de la cantidad de palabras de cada instruccion, dependiendo del tipo de instruccion.}
-\item{Evitar la declaración de una función dentro de otra, y verificar que el \texttt{RET} al final de una función corresponde a esa función.}
+\item{Save the labels and functions defined so far, to verify that there were no two definitions of the same label or function.}
+\item{Verify the number of words of each instruction, depending on the type of instruction.}
+\item{Avoid the declaration of a function inside another.}
 \end{enumerate}
+
+\end{itemize}
+
+\begin{itemize}
 
 \item{Optimizar la traducción}
 
