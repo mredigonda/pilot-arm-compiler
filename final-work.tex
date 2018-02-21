@@ -110,24 +110,24 @@ To complete this project:
 \end{enumerate}
 
 \section{Note}
-From the beginning, the objective of this project has been developing a compiler that, given a valid Pilot code, it generates a valid ARM assembly code that represents it. Due to this fact, if the program receives an invalid Pilot code, the compiler's behavior is indefinitely.
+From the beginning, the objective of this project has been to develop a compiler that, given a valid Pilot code, it generates a valid ARM assembly code that represents it. Due to this fact, if the program receives an invalid Pilot code, the compiler's behavior is undefined.
 
 \section{Problems}
-During the developing process have surged several challenges. Some of them are showing up next.
+During the development process several challenges arose. Some of them are showed next.
 
 \subsubsection{How to store the variables' values?}
 
-It was researched the possibility of storing the variables' values into registers. This would be efficient unless the variables' quantity was enough big to turn this operation tedious and chaotic. In this case, it would be needed some extra storage.
+It was researched the possibility of storing the variables' values into registers. This would be efficient unless the number of variables was big enough to turn this operation tedious and chaotic. In this case, it would be needed some extra storage.
 
-It was also considered the usage of the stack, which meant assigning an offset from the top of the stack to every variable. This option also has limitations when the amount of variables is big. Besides, it is likely that the variables were not the only values stored in the stack.
+It was also considered the usage of the stack, which meant assigning an offset from the top of the stack to every variable. This option also has limitations when the number of variables is big. Besides, it is likely that the variables were not the only values stored in the stack.
 
-Finally, an array with the minimum amount of memory for storing the value of every variable was determined as the best option. This method is easy and handy, it is assigned a position in the array for each variable. Then, the array is only composed of variables, and the memory is used optimally.
+Finally, an array with the minimum amount of memory for storing the value of every variable was determined as the best option. This method is easy and handy, a position in the array is assigned for each variable. Then, the array is only composed of variables, and the memory is used optimally.
 
 \subsubsection{Once an expression is stored, how to obtain its value and how to store it?}
 
-Due to an expression has at most 2 components, it was developed an expression-evaluator that uses the registers \texttt{r2} and \texttt{r3} (this can be changed) to store auxiliary values, and saves the result in the register \texttt{r1}.
+Since an expression has at most 2 components, it was developed an expression-evaluator that uses the registers \texttt{r2} and \texttt{r3} (this can be configured) to store auxiliary values, and saves the result in the register \texttt{r1}.
 
-It was decided to store the result in the register \texttt{r1} since is convenient for future calls to the \texttt{printf} function, avoiding an unnecessary \texttt{mov} instruction.
+It was decided to store the result in the register \texttt{r1} since it is convenient for future calls to the \texttt{printf} function, avoiding an unnecessary \texttt{mov} instruction.
 
 \subsubsection{¿Cómo soportar la operación de división entera? (\texttt{/})}
 
