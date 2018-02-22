@@ -1,6 +1,6 @@
 # Pilot-ARM Compiler
 
-This is a compiler from a toy programmnig language called Pilot, to ARM assembly. It was developed as the final project for my Computer Architecture class.
+This is a compiler from a toy programmnig language called Pilot, to ARM assembly. It was developed as the final project for my Computer Architecture class. You can see an article about it on [my blog](http://localhost:1313/post/2018-02-12-a-toy-compiler/).
 
 You can find the presentation of this project in the file [final-work.pdf](https://github.com/mredigonda/pilot-arm-compiler/blob/master/final-work.pdf) (the problem statement is in [tp_pilot.pdf](https://github.com/mredigonda/pilot-arm-compiler/blob/master/tp_pilot.pdf)).
 
